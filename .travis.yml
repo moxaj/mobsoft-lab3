@@ -23,6 +23,6 @@ deploy:
 notifications:
   email:
     recipients:
-      - myemail@address.com
+      - viktor.magyari92@gmail.com
     on_success: always
     on_failure: always
