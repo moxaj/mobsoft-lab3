@@ -6,7 +6,9 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import mobsoftlab.ui.main.MainPresenter;
+import mobsoftlab.ui.login.LoginPresenter;
+import mobsoftlab.ui.messages.MessagesPresenter;
+import mobsoftlab.ui.rooms.RoomsPresenter;
 
 @Module
 public class UIModule {
@@ -23,7 +25,19 @@ public class UIModule {
 
     @Provides
     @Singleton
-    public MainPresenter provideMainPresenter() {
-        return new MainPresenter();
+    public LoginPresenter provideLoginPresenter() {
+        return new LoginPresenter();
+    }
+
+    @Provides
+    @Singleton
+    public RoomsPresenter provideRoomsPresenter() {
+        return new RoomsPresenter();
+    }
+
+    @Provides
+    @Singleton
+    public MessagesPresenter provideMessagesPresenter() {
+        return new MessagesPresenter();
     }
 }

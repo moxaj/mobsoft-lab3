@@ -1,0 +1,70 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Chat Room Application
+basePath: /api
+consumes:
+  - application/json
+produces:
+  - application/json
+schemes:
+  - https
+paths:
+  /ChatRooms:
+    get:
+      summary: Gets all the chat rooms
+      operationId: GetChatRooms
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ChatRoom'
+  /ChatMessages/{chatRoomId}:
+    parameters:
+      - name: chatRoomId
+        required: true
+        in: path
+        description: The id of the chat room
+        type: integer
+    get:
+      summary: Gets all the chat messages for a given chat room
+      operationId: GetChatMessages
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ChatMessage'
+    post:
+      summary: Sends a new chat message to the given chat room
+      operationId: PostChatMessage
+      parameters:
+        - name: chatMessage
+          required: true
+          in: body
+          description: The chat message
+          schema:
+            $ref: '#/definitions/ChatMessage'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ChatMessage'
+definitions:
+  ChatRoom:
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+  ChatMessage:
+    properties:
+      senderId:
+        type: integer
+      content:
+        type: string
