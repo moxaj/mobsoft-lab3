@@ -12,4 +12,10 @@ public class LoginPresenter extends Presenter<LoginScreen> {
     public void detachScreen() {
         super.detachScreen();
     }
+
+    public void onLoginButtonClicked(String userName) {
+        if (!userName.isEmpty()) {
+            screen.navigateToRooms(userName);
+        }
+    }
 }

@@ -24,11 +24,13 @@
             android:name="DOMAIN_PACKAGE_NAME"
             android:value="mobsoftlab.model" />
 
-        <activity android:name=".ui.main.MainActivity">
+        <activity android:name=".ui.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.rooms.RoomsActivity"/>
+        <activity android:name=".ui.messages.MessagesActivity"/>
     </application>
 </manifest>

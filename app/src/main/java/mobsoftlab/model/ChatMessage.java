@@ -5,7 +5,7 @@ import com.orm.dsl.Table;
 @Table
 public class ChatMessage {
     private Long id;
-    private Long senderId;
+    private String userName;
     private String content;
     private ChatRoom chatRoom;
 
@@ -13,12 +13,12 @@ public class ChatMessage {
         return id;
     }
 
-    public Long getSenderId() {
-        return senderId;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setSenderId(Long senderId) {
-        this.senderId = senderId;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getContent() {
@@ -35,5 +35,24 @@ public class ChatMessage {
 
     public void setChatRoom(ChatRoom chatRoom) {
         this.chatRoom = chatRoom;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ChatMessage that = (ChatMessage) o;
+
+        if (!userName.equals(that.userName)) return false;
+        return content.equals(that.content);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = userName.hashCode();
+        result = 31 * result + content.hashCode();
+        return result;
     }
 }

@@ -16,8 +16,6 @@ public interface Repository {
 
     void addChatRoom(ChatRoom chatRoom);
 
-    void removeChatRoom(ChatRoom chatRoom);
-
     List<ChatMessage> getChatMessages(ChatRoom chatRoom);
 
     void addChatMessage(ChatRoom chatRoom, ChatMessage chatMessage);

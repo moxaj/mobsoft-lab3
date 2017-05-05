@@ -32,11 +32,6 @@ public class SugarOrmRepository implements Repository {
     }
 
     @Override
-    public void removeChatRoom(ChatRoom chatRoom) {
-        SugarRecord.deleteInTx(chatRoom);
-    }
-
-    @Override
     public List<ChatMessage> getChatMessages(ChatRoom chatRoom) {
         return SugarRecord.find(ChatMessage.class, "chatRoom = ?", chatRoom.getId().toString());
     }

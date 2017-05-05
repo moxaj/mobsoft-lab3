@@ -10,10 +10,10 @@ produces:
 schemes:
   - https
 paths:
-  /ChatRooms:
+  /chatRooms:
     get:
       summary: Gets all the chat rooms
-      operationId: GetChatRooms
+      operationId: getChatRooms
       responses:
         '200':
           description: OK
@@ -21,16 +21,16 @@ paths:
             type: array
             items:
               $ref: '#/definitions/ChatRoom'
-  /ChatMessages/{chatRoomId}:
+  /chatRooms/{chatRoomId}/chatMessages:
     parameters:
-      - name: chatRoomId
+      - name: chatRoomName
         required: true
         in: path
-        description: The id of the chat room
-        type: integer
+        description: The name of the chat room
+        type: string
     get:
       summary: Gets all the chat messages for a given chat room
-      operationId: GetChatMessages
+      operationId: getChatMessages
       responses:
         '200':
           description: OK
@@ -40,7 +40,7 @@ paths:
               $ref: '#/definitions/ChatMessage'
     post:
       summary: Sends a new chat message to the given chat room
-      operationId: PostChatMessage
+      operationId: postChatMessage
       parameters:
         - name: chatMessage
           required: true
@@ -64,7 +64,7 @@ definitions:
         type: string
   ChatMessage:
     properties:
-      senderId:
-        type: integer
+      userName:
+        type: string
       content:
         type: string

@@ -3,7 +3,10 @@ package mobsoftlab;
 import javax.inject.Singleton;
 
 import dagger.Component;
+import mobsoftlab.interactor.InteractorModule;
 import mobsoftlab.interactor.chat.ChatInteractor;
+import mobsoftlab.mock.MockNetworkModule;
+import mobsoftlab.repository.RepositoryModule;
 import mobsoftlab.ui.UIModule;
 import mobsoftlab.ui.login.LoginActivity;
 import mobsoftlab.ui.login.LoginPresenter;
@@ -13,7 +16,7 @@ import mobsoftlab.ui.rooms.RoomsActivity;
 import mobsoftlab.ui.rooms.RoomsPresenter;
 
 @Singleton
-@Component(modules = {UIModule.class})
+@Component(modules = {UIModule.class, RepositoryModule.class, InteractorModule.class, MockNetworkModule.class})
 public interface MobSoftApplicationComponent {
     void inject(MobSoftApplication mobSoftApplication);
 

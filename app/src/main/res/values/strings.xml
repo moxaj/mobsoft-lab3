@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MobSoftLab</string>
+    <string name="enter_your_username">Enter your username</string>
+    <string name="chat_rooms">Chat rooms</string>
+    <string name="chat_messages">Chat messages</string>
+    <string name="login">Login</string>
+    <string name="send_message">Send message</string>
 </resources>

@@ -16,6 +16,23 @@ public class MemoryRepository implements Repository {
     @Override
     public void open(Context context) {
         chatRooms = new HashMap<>();
+
+        for (int i = 0; i < 4; i++) {
+            ChatRoom chatRoom = new ChatRoom();
+            chatRoom.setName("Room " + i);
+            chatRoom.setDescription("Room description " + i);
+
+            List<ChatMessage> chatMessages = new ArrayList<>();
+            for (int j = 0; j < 4; j++) {
+                ChatMessage chatMessage = new ChatMessage();
+                chatMessage.setChatRoom(chatRoom);
+                chatMessage.setUserName("Username " + j);
+                chatMessage.setContent("Content " + j);
+                chatMessages.add(chatMessage);
+            }
+
+            chatRooms.put(chatRoom, chatMessages);
+        }
     }
 
     @Override
@@ -31,11 +48,6 @@ public class MemoryRepository implements Repository {
     @Override
     public void addChatRoom(ChatRoom chatRoom) {
         chatRooms.put(chatRoom, new ArrayList<ChatMessage>());
-    }
-
-    @Override
-    public void removeChatRoom(ChatRoom chatRoom) {
-        chatRooms.remove(chatRoom);
     }
 
     @Override
