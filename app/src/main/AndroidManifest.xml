@@ -32,5 +32,10 @@
         </activity>
         <activity android:name=".ui.rooms.RoomsActivity"/>
         <activity android:name=".ui.messages.MessagesActivity"/>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="3e9789b3ee25212fd42288ef20932d1c5458043a" />
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 </manifest>

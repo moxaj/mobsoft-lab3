@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import javax.inject.Inject;
 
 import mobsoftlab.MobSoftApplication;
@@ -22,6 +25,8 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen {
 
     protected Button loginButton;
 
+    private Tracker mTracker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +35,9 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen {
 
         userNameEditText = (EditText) findViewById(R.id.userNameEditText);
         loginButton = (Button) findViewById(R.id.loginButton);
+
+        MobSoftApplication application = (MobSoftApplication) getApplication();
+        mTracker = application.getDefaultTracker();
     }
 
     @Override
@@ -42,6 +50,9 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen {
                 loginPresenter.onLoginButtonClicked(userNameEditText.getText().toString());
             }
         });
+
+        mTracker.setScreenName("Image~LoginActivity");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
     @Override

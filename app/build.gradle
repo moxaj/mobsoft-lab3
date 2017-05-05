@@ -1,11 +1,26 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
 apply plugin: 'com.android.application'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
 apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "hu.bme.aut.mobsoft.mobsoftlab"
+        applicationId "hu.mobsoftlab"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
@@ -52,4 +67,10 @@ dependencies {
 
     //Mockito
     testCompile "org.mockito:mockito-core:1.10.19"
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        transitive = true;
+    }
+    compile 'com.google.android.gms:play-services-analytics:10.0.1'
 }
+
+apply plugin: 'com.google.gms.google-services'

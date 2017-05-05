@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "914666524399",
+    "project_id": "cellular-block-134216"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:914666524399:android:168e97f3c85df41f",
+        "android_client_info": {
+          "package_name": "hu.mobsoftlab"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgLVezGxFRFI9imRjZqEeA1yDhB0uhlAI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-98614282-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
